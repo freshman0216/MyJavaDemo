@@ -1,0 +1,31 @@
+server:
+  port: 9100
+management:
+  endpoints:
+    web:
+      exposure:
+        include : "*"
+  security:
+    enabled : false
+  actuator:
+    sensitive : false
+endpoints:
+  enabled : true
+spring:
+  application:
+    name: myDemo
+  cloud:
+    sentinel:
+      transport:
+        dashboard : localhost:8080
+      eager : true
+      datasource:
+        ds1:
+          file:
+            file : flowrule.json
+            file.data-type : json
+        ds2:
+          file:
+            file : degraderule.json
+            file.data-type : json
+
