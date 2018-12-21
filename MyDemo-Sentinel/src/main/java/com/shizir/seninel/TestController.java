@@ -12,9 +12,10 @@ import org.springframework.web.client.RestTemplate;
  */
 @RestController
 public class TestController {
-
 	@Autowired
 	private RestTemplate restTemplate;
+    @Autowired
+    private TestService testService;
 
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	@SentinelResource("resource")
@@ -31,5 +32,24 @@ public class TestController {
 	public String client() {
 		return restTemplate.getForObject("http://www.taobao.com/test", String.class);
 	}
+
+
+	@RequestMapping(value = "/dg/hello1", method = RequestMethod.GET)
+	public String hello1() {
+        String cat = testService.cat1();
+		return "Hello1_" + cat;
+	}
+
+	@RequestMapping(value = "/dg/hello2", method = RequestMethod.GET)
+	public String hello2() {
+        String cat = testService.cat2();
+        return "Hello2_" + cat;
+	}
+
+    @RequestMapping(value = "/dg/hello3", method = RequestMethod.GET)
+    public String hello3() {
+        String cat = testService.cat3();
+        return "Hello3_" + cat;
+    }
 
 }
