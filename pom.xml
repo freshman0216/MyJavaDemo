@@ -11,6 +11,8 @@
     <modules>
         <module>MyDemo-Java</module>
         <module>MyDemo-Mybatis</module>
+        <module>MyDemo-Spring</module>
+        <module>MyDemo-Sentinel</module>
     </modules>
 
     <properties>
