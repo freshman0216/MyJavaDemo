@@ -46,6 +46,12 @@ public class TestController {
         return "Hello2_" + cat;
 	}
 
+    @RequestMapping(value = "/dg/hello20", method = RequestMethod.GET)
+    public String hello20() {
+        String cat = testService.cat20();
+        return "Hello2_0_" + cat;
+    }
+
     @RequestMapping(value = "/dg/hello3", method = RequestMethod.GET)
     public String hello3() {
         String cat = testService.cat3();
